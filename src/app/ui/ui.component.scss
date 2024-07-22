@@ -1,0 +1,19 @@
+.ui {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+
+  ::ng-deep {
+    .hint {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      color: red;
+      font-size: 0.8rem;
+      transform: translateY(100%);
+    }
+  }
+}

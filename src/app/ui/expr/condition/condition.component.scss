@@ -1,0 +1,32 @@
+.condition-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  > :first-child {
+    width: 8px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  .condition {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .row {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: end;
+      gap: 8px;
+    }
+  }
+
+  > :last-child {
+    width: 8px;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+}

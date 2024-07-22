@@ -1,0 +1,8 @@
+<div [formGroup]="form" class="unary">
+  <select formControlName="op">
+    <option *ngFor="let operator of operators" [value]="operator.value">
+      {{ operator.label }}
+    </option>
+  </select>
+  <app-expr [form]="expr"></app-expr>
+</div>

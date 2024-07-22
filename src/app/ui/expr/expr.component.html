@@ -1,0 +1,30 @@
+<div class="expr" [ngClass]="visible ? 'visible' : 'hidden'">
+  <div class="header">
+    <div *ngIf="type.value" class="start"></div>
+    <div [formGroup]="form">
+      <select formControlName="type">
+        <option *ngFor="let type of types" [value]="type.value">
+          {{ type.label }}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="type.value" class="end"></div>
+  </div>
+  <div *ngIf="type.value" class="content">
+    <div *ngIf="type.value === 'primary'">
+      <app-primary [form]="form"></app-primary>
+    </div>
+    <div *ngIf="type.value === 'unary'">
+      <app-unary [form]="form"></app-unary>
+    </div>
+    <div *ngIf="type.value === 'binary'">
+      <app-binary [form]="form"></app-binary>
+    </div>
+    <div *ngIf="type.value === 'getter'">
+      <app-getter [form]="form"></app-getter>
+    </div>
+    <div *ngIf="type.value === 'condition'">
+      <app-condition [form]="form"></app-condition>
+    </div>
+  </div>
+</div>

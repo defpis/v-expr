@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="input">
+  <textarea placeholder="#input" formControlName="input"></textarea>
+  <div *ngIf="input.dirty && input.errors" class="hint">
+    <div *ngIf="input.hasError('required'); else cond2">required</div>
+    <ng-template #cond2>
+      <div *ngIf="input.hasError('invalid json')">invalid json</div>
+    </ng-template>
+  </div>
+</div>
