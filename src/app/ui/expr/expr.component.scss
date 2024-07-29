@@ -9,7 +9,7 @@
     position: relative;
 
     .start {
-      min-width: 9px;
+      min-width: 5px;
       height: 0;
       border-top: 1px dashed black;
 
@@ -25,7 +25,7 @@
 
     .end {
       flex: 1;
-      min-width: 9px;
+      min-width: 5px;
       height: 0;
       border-top: 1px dashed black;
 
@@ -41,7 +41,7 @@
   }
 
   .content {
-    padding: 8px 8px 0 8px;
+    padding: 4px 4px 0 4px;
     border-left: 1px dashed black;
     border-right: 1px dashed black;
   }
