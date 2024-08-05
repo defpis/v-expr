@@ -3,14 +3,14 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Interpreter } from './interpreter';
 import { debounce } from 'lodash';
 import { Subject, Subscription } from 'rxjs';
-import { inputKeyword } from './constants';
+import { INPUT_KEY } from './constants';
 import * as validators from './validators';
 
 const defaultEnv = {
-  [inputKeyword]: new FormControl(
-    JSON.stringify({ a: 1, b: 2, c: 3 }, null, 2),
-    [Validators.required, validators.json],
-  ),
+  [INPUT_KEY]: new FormControl(JSON.stringify({ a: 1, b: 2, c: 3 }, null, 2), [
+    Validators.required,
+    validators.json,
+  ]),
 };
 
 const defaultExpr = {
@@ -23,11 +23,8 @@ const defaultExpr = {
         expr: new FormGroup({
           type: new FormControl('getter', [Validators.required]),
           object: new FormGroup({
-            type: new FormControl('primary', [Validators.required]),
-            value: new FormControl('#input', [
-              Validators.required,
-              validators.json,
-            ]),
+            type: new FormControl('context', [Validators.required]),
+            context: new FormControl(INPUT_KEY, [Validators.required]),
           }),
           path: new FormGroup({
             type: new FormControl('primary', [Validators.required]),
@@ -41,11 +38,8 @@ const defaultExpr = {
       thenExpr: new FormGroup({
         type: new FormControl('getter', [Validators.required]),
         object: new FormGroup({
-          type: new FormControl('primary', [Validators.required]),
-          value: new FormControl('#input', [
-            Validators.required,
-            validators.json,
-          ]),
+          type: new FormControl('context', [Validators.required]),
+          context: new FormControl(INPUT_KEY, [Validators.required]),
         }),
         path: new FormGroup({
           type: new FormControl('primary', [Validators.required]),
@@ -60,11 +54,8 @@ const defaultExpr = {
         expr: new FormGroup({
           type: new FormControl('getter', [Validators.required]),
           object: new FormGroup({
-            type: new FormControl('primary', [Validators.required]),
-            value: new FormControl('#input', [
-              Validators.required,
-              validators.json,
-            ]),
+            type: new FormControl('context', [Validators.required]),
+            context: new FormControl(INPUT_KEY, [Validators.required]),
           }),
           path: new FormGroup({
             type: new FormControl('primary', [Validators.required]),

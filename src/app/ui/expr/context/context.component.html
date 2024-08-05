@@ -1,0 +1,7 @@
+<div [formGroup]="form" class="context">
+  <select formControlName="context">
+    <option *ngFor="let context of contexts" [value]="context.value">
+      {{ context.label }}
+    </option>
+  </select>
+</div>

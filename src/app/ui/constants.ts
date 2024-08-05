@@ -1,3 +1,1 @@
-export const inputKeyword = 'input';
-
-export const keywords = [inputKeyword];
+export const INPUT_KEY = 'input';

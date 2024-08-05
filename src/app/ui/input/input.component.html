@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="input">
-  <textarea placeholder="#input" formControlName="input"></textarea>
+  <textarea placeholder="input" formControlName="input"></textarea>
   <div *ngIf="input.dirty && input.errors" class="hint">
     <div *ngIf="input.hasError('required'); else cond2">required</div>
     <ng-template #cond2>

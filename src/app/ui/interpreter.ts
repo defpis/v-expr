@@ -1,5 +1,4 @@
 import { get } from 'lodash';
-import { keywords } from './constants';
 
 function generatePrecedence() {
   const precedence: any = {};
@@ -38,14 +37,7 @@ export class Interpreter {
   static precedence = generatePrecedence();
 
   primary(ast: any) {
-    let str = ast.value;
-    if (str.startsWith('#')) {
-      const keyword = str.slice(1);
-      if (keywords.includes(keyword)) {
-        str = get(this.environment, keyword);
-      }
-    }
-    return JSON.parse(str);
+    return JSON.parse(ast.value);
   }
 
   unary(ast: any) {
@@ -123,6 +115,10 @@ export class Interpreter {
     }
   }
 
+  context(ast: any) {
+    return JSON.parse(get(this.environment, ast.context));
+  }
+
   getter(ast: any) {
     const object = this.evaluate(ast.object);
     const path = this.evaluate(ast.path);
@@ -153,6 +149,8 @@ export class Interpreter {
         return this.binary(ast);
       case '_binary':
         return this._binary(ast);
+      case 'context':
+        return this.context(ast);
       case 'getter':
         return this.getter(ast);
       case 'condition':

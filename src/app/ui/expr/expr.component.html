@@ -20,6 +20,9 @@
     <div *ngIf="type.value === 'binary'">
       <app-binary [form]="form"></app-binary>
     </div>
+    <div *ngIf="type.value === 'context'">
+      <app-context [form]="form"></app-context>
+    </div>
     <div *ngIf="type.value === 'getter'">
       <app-getter [form]="form"></app-getter>
     </div>

@@ -55,6 +55,10 @@ export class ExprComponent {
       value: 'binary',
     },
     {
+      label: 'context',
+      value: 'context',
+    },
+    {
       label: 'getter',
       value: 'getter',
     },

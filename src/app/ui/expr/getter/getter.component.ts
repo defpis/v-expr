@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as validators from '../../validators';
+import { INPUT_KEY } from '../../constants';
 
 @Component({
   selector: 'app-getter',
@@ -22,11 +23,8 @@ export class GetterComponent {
     this.form.addControl(
       'object',
       new FormGroup({
-        type: new FormControl('primary', [Validators.required]),
-        value: new FormControl('#input', [
-          Validators.required,
-          validators.json,
-        ]),
+        type: new FormControl('context', [Validators.required]),
+        context: new FormControl(INPUT_KEY, [Validators.required]),
       }),
     );
     this.form.addControl('path', new FormGroup({}));

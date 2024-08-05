@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as validators from '../validators';
-import { inputKeyword } from '../constants';
+import { INPUT_KEY } from '../constants';
 
 @Component({
   selector: 'app-input',
@@ -12,13 +12,17 @@ export class InputComponent {
   @Input() form: FormGroup;
 
   get input() {
-    return this.form.get(inputKeyword) as FormControl;
+    return this.form.get(INPUT_KEY) as FormControl;
   }
 
   ngOnInit() {
     this.form.addControl(
-      inputKeyword,
+      INPUT_KEY,
       new FormControl('{}', [Validators.required, validators.json]),
     );
+  }
+
+  ngOnDestroy() {
+    this.form.removeControl(INPUT_KEY);
   }
 }
